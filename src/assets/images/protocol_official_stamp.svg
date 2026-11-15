@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@800;900&amp;family=Montserrat:wght@800;900&amp;display=swap');
+      .dark-olive { fill: #334327; }
+      .stroke-olive { stroke: #334327; }
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="1000" fill="#ffffff" />
+
+  <!-- Outer Concentric Rings -->
+  <!-- Outermost Thin Ring -->
+  <circle cx="500" cy="500" r="462" fill="none" stroke="#334327" stroke-width="4.5" />
+  
+  <!-- Secondary Thick Outer Ring -->
+  <circle cx="500" cy="500" r="440" fill="none" stroke="#334327" stroke-width="15" />
+
+  <!-- Inner Soft Inset Ring -->
+  <circle cx="500" cy="500" r="424" fill="none" stroke="#334327" stroke-width="2" opacity="0.6" />
+
+  <!-- Horizontal Side Accent Ticks -->
+  <line x1="125" y1="490" x2="195" y2="490" stroke="#334327" stroke-width="5" stroke-linecap="round" />
+  <line x1="805" y1="490" x2="875" y2="490" stroke="#334327" stroke-width="5" stroke-linecap="round" />
+
+  <!-- TOP SECTION: Arabic Header -->
+  <text x="500" y="215" 
+        font-family="'Cairo', sans-serif" 
+        font-size="82" 
+        font-weight="900" 
+        fill="#334327" 
+        text-anchor="middle" 
+        letter-spacing="1px">بروتوكول</text>
+
+  <!-- Top Accent Line with Flanking Dots -->
+  <circle cx="265" cy="238" r="5" fill="#334327" />
+  <line x1="282" y1="238" x2="718" y2="238" stroke="#334327" stroke-width="3" stroke-linecap="round" />
+  <circle cx="735" cy="238" r="5" fill="#334327" />
+
+  <!-- CENTER EMBLEM: BRAIN (LEFT) & TOOTH (RIGHT) -->
+  <g transform="translate(0, 0)">
+    
+    <!-- Central Divider Axis -->
+    <line x1="514" y1="330" x2="514" y2="670" stroke="#334327" stroke-width="6" stroke-linecap="round" />
+
+    <!-- LEFT SIDE: BRAIN (Dark Olive Solid with Organic White Sulci) -->
+    <!-- Brain Silhouette Base -->
+    <path d="M 504 330
+             C 450 325, 405 345, 375 385
+             C 345 425, 335 465, 335 500
+             C 330 535, 340 575, 360 610
+             C 380 645, 415 670, 455 685
+             C 480 695, 498 692, 504 690
+             L 504 330 Z" 
+          fill="#334327" />
+
+    <!-- Organic Sulci Curves (White grooves inside the brain) -->
+    <g stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Upper Lobe Gyri -->
+      <path d="M 500 365 C 460 360, 420 375, 410 405 C 400 435, 435 445, 460 435 C 485 425, 495 440, 485 460" />
+      <path d="M 370 415 C 360 440, 375 465, 405 460 C 430 455, 440 480, 420 495" />
+      
+      <!-- Mid Lobe Gyri -->
+      <path d="M 345 490 C 375 480, 400 500, 395 525 C 390 550, 425 550, 450 530 C 475 510, 495 530, 475 555" />
+      <path d="M 500 475 C 470 470, 460 500, 480 515 C 495 525, 490 545, 465 560" />
+      
+      <!-- Lower Lobe & Cerebellum Gyri -->
+      <path d="M 360 560 C 380 585, 410 575, 420 600 C 430 625, 400 645, 430 655 C 455 665, 480 650, 470 620" />
+      <path d="M 465 585 C 485 580, 500 600, 490 625 C 480 650, 495 665, 500 670" />
+      <path d="M 390 625 C 405 645, 425 640, 445 660" />
+    </g>
+
+    <!-- RIGHT SIDE: TOOTH (Molar Crown & Roots Outline) -->
+    <path d="M 522 342
+             C 535 340, 565 320, 600 320
+             C 630 320, 655 340, 670 365
+             C 685 390, 685 420, 680 460
+             C 675 500, 665 540, 655 580
+             C 645 620, 625 680, 610 710
+             C 600 725, 585 725, 580 705
+             C 570 660, 560 600, 555 570
+             C 550 545, 545 545, 540 565
+             C 532 595, 524 645, 522 665"
+          fill="none" 
+          stroke="#334327" 
+          stroke-width="8.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+
+    <!-- Crown Occlusal & Cervical Refinements -->
+    <path d="M 535 348 C 555 358, 580 355, 600 340 C 620 355, 645 358, 665 350"
+          fill="none" 
+          stroke="#334327" 
+          stroke-width="7" 
+          stroke-linecap="round" />
+  </g>
+
+  <!-- BOTTOM SECTION: English Protocol Text -->
+  <!-- Bottom Accent Divider Line -->
+  <line x1="310" y1="795" x2="690" y2="795" stroke="#334327" stroke-width="3" stroke-linecap="round" />
+
+  <!-- PROTOCOL Text -->
+  <text x="500" y="865" 
+        font-family="'Montserrat', 'Arial Black', sans-serif" 
+        font-size="62" 
+        font-weight="900" 
+        fill="#334327" 
+        text-anchor="middle" 
+        letter-spacing="0.18em">PROTOCOL</text>
+
+</svg>

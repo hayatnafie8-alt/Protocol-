@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- Official Application Title & Subtitle -->
+    <title>بروتوكول PROTOCOL | إعداد وتصميم د. حياه نافع فجر</title>
+    <meta name="title" content="بروتوكول PROTOCOL | إعداد وتصميم د. حياه نافع فجر" />
+    <meta name="description" content="تطبيق بروتوكول PROTOCOL للتعليم والبروتوكولات السريرية في طب الأسنان - إعداد وتصميم د. حياه نافع فجر" />
+    <meta name="author" content="د. حياه نافع فجر" />
+    <meta name="theme-color" content="#59662C" />
+    <meta name="application-name" content="بروتوكول PROTOCOL" />
+
+    <!-- Open Graph / Facebook / Telegram / WhatsApp Sharing Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="بروتوكول PROTOCOL" />
+    <meta property="og:title" content="بروتوكول PROTOCOL | إعداد وتصميم د. حياه نافع فجر" />
+    <meta property="og:description" content="تطبيق بروتوكول PROTOCOL للتعليم والبروتوكولات السريرية في طب الأسنان - إعداد وتصميم د. حياه نافع فجر" />
+    <meta property="og:image" content="/icon-512.png?v=3" />
+    <meta property="og:image:secure_url" content="/icon-512.png?v=3" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="بروتوكول PROTOCOL - شعار الدماغ والسن" />
+    <meta property="og:locale" content="ar_AR" />
+
+    <!-- Twitter / X Sharing Metadata -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="بروتوكول PROTOCOL | إعداد وتصميم د. حياه نافع فجر" />
+    <meta name="twitter:description" content="تطبيق بروتوكول PROTOCOL للتعليم والبروتوكولات السريرية في طب الأسنان - إعداد وتصميم د. حياه نافع فجر" />
+    <meta name="twitter:image" content="/icon-512.png?v=3" />
+    <meta name="twitter:image:alt" content="بروتوكول PROTOCOL - Brain & Tooth Clinical Protocol" />
+
+    <!-- PWA Standard Tags & App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="بروتوكول PROTOCOL" />
+
+    <!-- Global Early Capture for Native PWA Install Prompt & protocol_fab_icon -->
+    <script>
+      window.deferredPrompt = null;
+      window.addEventListener('beforeinstallprompt', function(e) {
+        e.preventDefault();
+        window.deferredPrompt = e;
+        window.dispatchEvent(new CustomEvent('pwa-deferred-prompt-ready'));
+      });
+      window.addEventListener('appinstalled', function() {
+        window.deferredPrompt = null;
+        window.dispatchEvent(new CustomEvent('pwa-app-installed'));
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+        try {
+          var savedFab = localStorage.getItem('protocol_bottom_nav_fab_icon') || localStorage.getItem('protocol_fab_icon');
+          if (savedFab) {
+            var img = document.getElementById('centerFabIconImg');
+            if (img) img.src = savedFab;
+          }
+        } catch (e) {}
+      });
+    </script>
+
+    <!-- PWA Icons: Custom Medical Dental/Brain Icons with Safe-Zone Margins -->
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png?v=3" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=3" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png?v=3" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png?v=3" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
+    <link rel="mask-icon" href="/favicon.svg?v=3" color="#59662C" />
+
+    <!-- Typography: Cairo, Tajawal, Amiri & Plus Jakarta Sans in Olive Tone -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "بروتوكول PROTOCOL | د. حياه نافع فجر",
+      "alternateName": "بروتوكول",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": "تطبيق بروتوكول PROTOCOL للتعليم والبروتوكولات السريرية في طب الأسنان",
+      "author": {
+        "@type": "Person",
+        "name": "د. حياه نافع فجر",
+        "affiliation": {
+          "@type": "EducationalOrganization",
+          "name": "جامعة المعارف - كلية طب الأسنان"
+        }
+      },
+      "image": "/icon-512.png"
+    }
+    </script>
+  </head>
+  <body class="bg-[#FAF7F2] text-[#2C3120] antialiased selection:bg-[#59662C]/20 selection:text-[#384318]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

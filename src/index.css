@@ -1,0 +1,483 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --olive-primary: #596628;
+    --olive-dark: #3e481b;
+    --olive-light: #7b8c3f;
+    --olive-subtle: #f2f5e8;
+    --beige-bg: #FAF7F2;
+    --beige-card: #F4EFE6;
+    --beige-border: #E5DEC9;
+    --beige-dark: #2F2B24;
+  }
+
+  .dark {
+    --olive-primary: #8CA33C;
+    --olive-dark: #A3BD47;
+    --olive-light: #B4CE52;
+    --olive-subtle: #1e2417;
+    --beige-bg: #141712;
+    --beige-card: #1D2218;
+    --beige-border: #323A27;
+    --beige-dark: #FAF7F2;
+  }
+
+  body {
+    font-family: 'Cairo', 'Tajawal', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #FAF7F2;
+    color: #2F2B24;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  html.dark body {
+    background-color: #141712;
+    color: #F5F2EB;
+  }
+}
+
+/* ========================================================================= */
+/* Comprehensive Fluid & Smooth Motion / Animation Constitution             */
+/* ========================================================================= */
+
+@keyframes fluidFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fluidFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fluidScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fluidScaleDown {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+}
+
+@keyframes fluidSlideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fluidSlideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fluidSlideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fluidSlideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fluidDropdownDown {
+  0% {
+    opacity: 0;
+    transform: scale(0.94) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Universal support for Tailwind animate-in utility classes across all components */
+.animate-in {
+  animation-duration: 250ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+}
+
+.animate-fadeIn,
+.fade-in {
+  animation-name: fluidFadeIn;
+}
+
+.animate-fadeOut,
+.fade-out {
+  animation-name: fluidFadeOut;
+}
+
+.animate-scaleUp,
+.zoom-in,
+.zoom-in-95 {
+  animation-name: fluidScaleUp;
+}
+
+.animate-scaleDown,
+.zoom-out,
+.zoom-out-95 {
+  animation-name: fluidScaleDown;
+}
+
+.slide-in-from-bottom {
+  animation-name: fluidSlideInFromBottom;
+}
+
+.slide-in-from-top {
+  animation-name: fluidSlideInFromTop;
+}
+
+.slide-in-from-right {
+  animation-name: fluidSlideInFromRight;
+}
+
+.slide-in-from-left {
+  animation-name: fluidSlideInFromLeft;
+}
+
+.duration-150 {
+  animation-duration: 150ms !important;
+}
+
+.duration-200 {
+  animation-duration: 200ms !important;
+}
+
+.duration-250 {
+  animation-duration: 250ms !important;
+}
+
+.duration-300 {
+  animation-duration: 300ms !important;
+}
+
+.duration-400 {
+  animation-duration: 400ms !important;
+}
+
+.duration-500 {
+  animation-duration: 500ms !important;
+}
+
+/* Fluid Dropdown Menus */
+.fluid-dropdown {
+  animation: fluidDropdownDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top left;
+}
+
+[dir="rtl"] .fluid-dropdown,
+.rtl .fluid-dropdown {
+  transform-origin: top right;
+}
+
+/* Fluid Modal Backdrop & Content */
+.fluid-modal-backdrop {
+  animation: fluidFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.fluid-modal-container {
+  animation: fluidScaleUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.fluid-bottom-sheet-container {
+  animation: fluidSlideInFromBottom 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Card and Interactive Surface Transitions */
+.fluid-card {
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease;
+  will-change: transform, box-shadow;
+}
+
+.fluid-card:hover {
+  transform: translateY(-2px);
+}
+
+.fluid-card:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.fluid-interactive {
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.18s ease,
+              background-color 0.18s ease,
+              box-shadow 0.18s ease;
+}
+
+.fluid-interactive:active {
+  transform: scale(0.96);
+}
+
+/* Smooth Accordions & Collapsible Sections */
+.fluid-accordion {
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.28s ease,
+              transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: max-height, opacity, transform;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1ecdf;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #1d2218;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7beab;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #444e36;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #596628;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #8CA33C;
+}
+
+/* 1. Critical Fix for Text Compression & View Layout (Prevent vertical character collapse e.g. "ح-ض-و-ر...") */
+.prevent-text-collapse,
+.clinical-title-safe,
+.section-title-safe {
+  width: 100% !important;
+  display: block !important;
+  text-align: right !important;
+  word-break: keep-all !important;
+  white-space: normal !important;
+}
+
+/* Universal safe text handling for Arabic and English headings */
+h1, h2, h3, h4, h5, h6 {
+  word-break: keep-all;
+  white-space: normal;
+}
+
+/* Ensure skill/guide views expand fully across mobile screens */
+.clinical-fullscreen-view {
+  width: 100vw !important;
+  min-height: 100vh !important;
+  padding: 16px !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Comprehensive Anti-Piracy, Anti-Screenshot & Digital Content Protection */
+/* Default Protected User Mode: Completely disable selection, copying, and drag for all regular users */
+body:not(.admin-unrestricted-mode),
+body:not(.admin-unrestricted-mode) #root,
+body:not(.admin-unrestricted-mode) *:not(input):not(textarea):not([contenteditable="true"]) {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Allow typing in inputs/textareas for users */
+body:not(.admin-unrestricted-mode) input,
+body:not(.admin-unrestricted-mode) textarea,
+body:not(.admin-unrestricted-mode) [contenteditable="true"] {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+/* ADMIN EXEMPTION: Supervisor account is 100% exempted to copy text, right-click, and capture freely */
+body.admin-unrestricted-mode,
+body.admin-unrestricted-mode #root,
+body.admin-unrestricted-mode * {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+  -webkit-touch-callout: default !important;
+}
+
+/* Strict image protection: Prevent dragging, context saving, and ghost ghosting */
+img, svg, canvas {
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Dynamic Content Blur when window loses focus or DevTools/Recorder is active */
+.content-protect-blur {
+  filter: blur(24px) grayscale(80%) !important;
+  pointer-events: none !important;
+  opacity: 0.15 !important;
+  transition: filter 0.15s ease, opacity 0.15s ease !important;
+}
+
+/* Full anti-capture blanket protection */
+.anti-capture-blank {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* 2. Controlled Secure Printing Styles */
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 10mm 15mm 10mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 11pt !important;
+  }
+
+  /* Hide interactive screen UI */
+  header,
+  nav,
+  footer,
+  aside,
+  .no-print,
+  #activation-card,
+  button,
+  .admin-controls,
+  .modal-overlay,
+  .fixed-nav {
+    display: none !important;
+  }
+
+  /* Show print-only content */
+  .print-only {
+    display: block !important;
+  }
+
+  /* Page break helpers */
+  .print-break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  /* Unauthorized direct print blocker */
+  body.unauthorized-print-attempt #root > *:not(#unauthorized-print-notice) {
+    display: none !important;
+  }
+
+  body.unauthorized-print-attempt #unauthorized-print-notice {
+    display: block !important;
+  }
+
+  /* Full-page repeating diagonal security watermark overlay */
+  .print-security-watermark-overlay {
+    display: flex !important;
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 999999 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+  }
+}
+
+/* ========================================================================= */
+/* Bottom Navbar FAB Icon (Asset ID: bottom_nav_fab_icon) Strict Rules      */
+/* ========================================================================= */
+[data-asset-id="bottom_nav_fab_icon"],
+#centerFabIconContainer,
+#centerFabIconContainer > *,
+#centerFabIconContainer img,
+#centerFabIconContainer svg,
+#centerFabIconImg,
+#centerFabButton svg,
+.fab-icon-transparent {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+#centerFabIconImg,
+[data-asset-id="bottom_nav_fab_icon"] img,
+img[data-asset-id="bottom_nav_fab_icon"],
+.fab-icon-multiply {
+  object-fit: contain !important;
+  mix-blend-mode: multiply !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+

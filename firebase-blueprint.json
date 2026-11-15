@@ -1,0 +1,403 @@
+{
+  "entities": {
+    "Skill": {
+      "title": "Skill",
+      "description": "Clinical Dental Skill Protocol Item with real-time sync, visibility status, and cloud-hosted photo assets",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the skill"
+        },
+        "category": {
+          "type": "string",
+          "description": "Clinical category: anesthesia, rubber_dam, suturing"
+        },
+        "categoryLabel": {
+          "type": "string",
+          "description": "Arabic display label for category"
+        },
+        "title": {
+          "type": "string",
+          "description": "Arabic clinical title of the skill"
+        },
+        "titleEn": {
+          "type": "string",
+          "description": "English anatomical/clinical name"
+        },
+        "shortDesc": {
+          "type": "string",
+          "description": "Brief clinical synopsis"
+        },
+        "indication": {
+          "type": "string",
+          "description": "Indications for this procedure"
+        },
+        "difficulty": {
+          "type": "string",
+          "description": "Clinical difficulty rating"
+        },
+        "estimatedTime": {
+          "type": "string",
+          "description": "Estimated procedural time"
+        },
+        "isHidden": {
+          "type": "boolean",
+          "description": "True if skill is hidden by Admin from subscribers"
+        },
+        "isVisible": {
+          "type": "boolean",
+          "description": "True if skill is visible to subscribers"
+        },
+        "isSystem": {
+          "type": "boolean",
+          "description": "True for core preset skills"
+        },
+        "dateAdded": {
+          "type": "string",
+          "description": "ISO date of addition"
+        },
+        "primaryPhotoUrl": {
+          "type": "string",
+          "description": "Main clinical photograph URL (Cloud Storage or hosted asset)"
+        },
+        "diagramType": {
+          "type": "string",
+          "description": "Diagram identifier for visual rendering"
+        },
+        "diagramCaption": {
+          "type": "string",
+          "description": "Detailed clinical caption and landmarks"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp of latest modification"
+        }
+      },
+      "required": ["id", "title", "category"]
+    },
+    "FeedPost": {
+      "title": "FeedPost",
+      "description": "Community clinical feed announcement or post with real-time sync and push triggers",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique post ID"
+        },
+        "authorName": {
+          "type": "string",
+          "description": "Name of author (e.g. د. حياة نافع فجر)"
+        },
+        "authorRole": {
+          "type": "string",
+          "description": "Role of the post creator (admin)"
+        },
+        "authorTitle": {
+          "type": "string",
+          "description": "Display title of the author"
+        },
+        "content": {
+          "type": "string",
+          "description": "Arabic clinical text content of the post"
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "Optional attached clinical photo URL"
+        },
+        "isPinned": {
+          "type": "boolean",
+          "description": "Whether the post is pinned to the top of the feed"
+        },
+        "likesCount": {
+          "type": "number",
+          "description": "Total positive reactions"
+        },
+        "dislikesCount": {
+          "type": "number",
+          "description": "Total negative reactions"
+        },
+        "reactions": {
+          "type": "object",
+          "description": "Map of user IDs to their reaction type"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Display timestamp string"
+        },
+        "timestamp": {
+          "type": "number",
+          "description": "Unix epoch milliseconds timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Latest update timestamp"
+        }
+      },
+      "required": ["id", "authorName", "content", "timestamp"]
+    },
+    "SupervisorNote": {
+      "title": "SupervisorNote",
+      "description": "Subscriber clinical note or question submitted to supervisor with real-time targeted reply tracking",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique note ID"
+        },
+        "studentEmail": {
+          "type": "string",
+          "description": "Subscriber email address"
+        },
+        "studentName": {
+          "type": "string",
+          "description": "Subscriber display name"
+        },
+        "category": {
+          "type": "string",
+          "description": "Note category (clinical_question, slide_inquiry, case_discussion, general_feedback, urgent)"
+        },
+        "sectionTitle": {
+          "type": "string",
+          "description": "Clinical section context"
+        },
+        "slideTitle": {
+          "type": "string",
+          "description": "Specific slide context"
+        },
+        "content": {
+          "type": "string",
+          "description": "Note content or question text"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Formatted creation time"
+        },
+        "timestamp": {
+          "type": "number",
+          "description": "Numeric timestamp"
+        },
+        "isRead": {
+          "type": "boolean",
+          "description": "Read status by admin"
+        },
+        "reply": {
+          "type": "string",
+          "description": "Doctor's reply to subscriber"
+        },
+        "repliedAt": {
+          "type": "string",
+          "description": "Timestamp of doctor reply"
+        },
+        "replyReadByStudent": {
+          "type": "boolean",
+          "description": "Whether subscriber has seen/read the reply"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last update ISO string"
+        }
+      },
+      "required": ["id", "studentEmail", "content", "timestamp"]
+    },
+    "AppNotification": {
+      "title": "AppNotification",
+      "description": "Real-time multi-channel notification for post broadcasts and targeted supervisor replies",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Notification unique ID"
+        },
+        "type": {
+          "type": "string",
+          "description": "broadcast_post, targeted_reply, or system_alert"
+        },
+        "title": {
+          "type": "string",
+          "description": "Notification headline"
+        },
+        "message": {
+          "type": "string",
+          "description": "Notification body details"
+        },
+        "targetEmail": {
+          "type": "string",
+          "description": "Target subscriber email for personal reply notifications"
+        },
+        "targetNoteId": {
+          "type": "string",
+          "description": "Associated supervisor note ID"
+        },
+        "postId": {
+          "type": "string",
+          "description": "Associated feed post ID"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation time display"
+        },
+        "timestamp": {
+          "type": "number",
+          "description": "Numeric epoch timestamp"
+        }
+      },
+      "required": ["id", "type", "title", "timestamp"]
+    },
+    "UserSession": {
+      "title": "UserSession",
+      "description": "Real-time single-device session record enforcing concurrent login restriction per subscriber account",
+      "type": "object",
+      "properties": {
+        "sessionId": {
+          "type": "string",
+          "description": "Unique active session token for the authorized device"
+        },
+        "email": {
+          "type": "string",
+          "description": "Subscriber account email address"
+        },
+        "studentName": {
+          "type": "string",
+          "description": "Subscriber display name"
+        },
+        "deviceToken": {
+          "type": "string",
+          "description": "Hardware and browser fingerprint hash for the current device"
+        },
+        "deviceSummary": {
+          "type": "string",
+          "description": "Human-readable device summary e.g. iPhone / Safari or Android / Chrome"
+        },
+        "loginTimestamp": {
+          "type": "number",
+          "description": "Epoch timestamp of when this device logged in"
+        },
+        "lastHeartbeat": {
+          "type": "number",
+          "description": "Latest heartbeat ping from this active device"
+        },
+        "status": {
+          "type": "string",
+          "description": "active or terminated"
+        },
+        "terminatedReason": {
+          "type": "string",
+          "description": "Reason if terminated e.g. concurrent_login_from_another_device"
+        }
+      },
+      "required": ["sessionId", "email", "deviceToken", "loginTimestamp", "status"]
+    },
+    "PrescriptionDrug": {
+      "title": "PrescriptionDrug",
+      "description": "Dental Emergency and Prescription Drug Guide item with clinical dosages and safety alerts",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the medication"
+        },
+        "category": {
+          "type": "string",
+          "description": "analgesics, antibiotics, mouthwashes, emergency"
+        },
+        "nameEn": {
+          "type": "string",
+          "description": "Generic and trade name in English"
+        },
+        "nameAr": {
+          "type": "string",
+          "description": "Drug name in Arabic"
+        },
+        "indication": {
+          "type": "string",
+          "description": "Clinical dental indications"
+        },
+        "standardDosage": {
+          "type": "string",
+          "description": "Standard approved dosage guidelines for adults and pediatrics"
+        },
+        "allergyAlerts": {
+          "type": "string",
+          "description": "Hypersensitivity and allergy warnings"
+        },
+        "pregnancySafety": {
+          "type": "string",
+          "description": "Pregnancy and lactation safety classifications"
+        },
+        "adminNotes": {
+          "type": "string",
+          "description": "Clinical pharmacy tips and admin notes"
+        },
+        "status": {
+          "type": "string",
+          "description": "draft or published"
+        },
+        "warningLevel": {
+          "type": "string",
+          "description": "high, caution, safe, info"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp ISO"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last updated timestamp ISO"
+        }
+      },
+      "required": ["id", "category", "nameEn", "nameAr", "standardDosage", "status"]
+    },
+    "StudentSkillActivityLog": {
+      "title": "StudentSkillActivityLog",
+      "description": "Aggregated clinical activity logs tracking dental student skill progression and competency milestones",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "category": { "type": "string" },
+        "categoryLabelAr": { "type": "string" },
+        "procedureTitle": { "type": "string" },
+        "toothNumber": { "type": "string" },
+        "competencyScore": { "type": "number" },
+        "durationMinutes": { "type": "number" },
+        "date": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "status": { "type": "string" },
+        "supervisorNotes": { "type": "string" }
+      },
+      "required": ["id", "studentId", "category", "procedureTitle", "competencyScore"]
+    }
+  },
+  "firestore": {
+    "/skills/{skillId}": {
+      "schema": "Skill",
+      "description": "Centralized cloud database collection storing clinical dental skills and protocols"
+    },
+    "/posts/{postId}": {
+      "schema": "FeedPost",
+      "description": "Real-time feed posts and announcements with instant subscriber propagation"
+    },
+    "/supervisor_notes/{noteId}": {
+      "schema": "SupervisorNote",
+      "description": "Subscriber questions and clinical supervisor responses with targeted push alerts"
+    },
+    "/notifications/{notificationId}": {
+      "schema": "AppNotification",
+      "description": "Real-time notification events stream for multi-channel broadcasts and targeted replies"
+    },
+    "/active_sessions/{emailKey}": {
+      "schema": "UserSession",
+      "description": "Single-device active session enforcement tracking concurrent logins and remote termination"
+    },
+    "/prescription_drugs/{drugId}": {
+      "schema": "PrescriptionDrug",
+      "description": "Emergency and prescription medications catalog with full CRUD and visibility control"
+    },
+    "/student_activity_logs/{logId}": {
+      "schema": "StudentSkillActivityLog",
+      "description": "Aggregated student activity logs for interactive skills growth charts and analytics"
+    }
+  }
+}
